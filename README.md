@@ -89,6 +89,8 @@ Then:
 
 1. **Private banks earn ~2× more per ₹ of assets, and the gap is structural.** Private ROA went from 0.97% (FY20) to 1.98% (FY25). PSU ROA grew 7× from a tiny base — 0.16% to 1.12%. The ~1pp gap has held across the entire cycle.
 
+   **Is the gap statistically significant?** Yes. Welch's two-sample t-test on the pooled 36-observation panel: **t = 5.54, p ≈ 5 × 10⁻⁶**, 95% CI on the gap = **[0.64 pp, 1.34 pp]**. Even at the conservative end, private banks earn 64bps more per ₹ of assets than PSUs. A per-year breakdown in [`notebooks/statistical_significance.py`](notebooks/statistical_significance.py) shows the direction is consistent every year, though within-year n=3 per side keeps individual years' p-values mostly above 0.05 — which is why the pooled test is the right one to report.
+
 2. **The PSU NPA clean-up is real, and almost over.** Gross NPAs at PSUs fell from **9.92% → 2.68%**. The 6.04pp gap with private peers narrowed to just **1.23pp**. The IBC and the credit cycle did most of the heavy lifting — the easy wins are gone.
 
 3. **PSUs aren't growth-laggards. They're just smaller.** Loan-book CAGR (FY20→FY25): PNB **18.8%**, ICICI **15.8%**, SBI **12.7%**, Axis **12.7%**, BoB **12.3%**. The "PSUs are dying" narrative is wrong.
