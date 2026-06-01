@@ -99,6 +99,8 @@ Then:
 
 5. **NIM is the persistent ~90–110bps spread that explains most of the residual ROA gap.** Private banks earn more per rupee they lend — pricing power and retail asset mix, not luck.
 
+   **Quantified.** An OLS regression of ROA on NIM, NPA, and CASA (`notebooks/roa_regression.py`) explains **80% of the variance in ROA** (R² = 0.80). NIM is by far the biggest coefficient (β = +0.94 pp of ROA per 1pp of NIM, p < 0.001). Decomposing the 0.99pp gap into Model-1 coefficients × group-mean differences: **NIM contributes +0.84pp (84% of the gap), NPA contributes +0.23pp, CASA −0.02pp.** When I add a private-vs-PSU dummy to the regression, its coefficient is **not statistically significant (p = 0.37)** — meaning there is no "private bank premium" left over once NIM, NPA, and CASA are controlled for. **The ROA gap is a structural story, not an ownership one.**
+
 ![FY25 league table](outputs/06_fy25_league_table.png)
 
 The 3 strategic recommendations in the memo: (1) stop chasing CASA, chase NIM; (2) defend NPA gains by re-engineering underwriting with data, not by lending less; (3) become the bank for Bharat's middle 60% — close the digital UX gap on SMB lending.
@@ -121,7 +123,7 @@ The 3 strategic recommendations in the memo: (1) stop chasing CASA, chase NIM; (
 
 - **Sub-segment analysis.** Right now I treat each bank as one entity. A real analyst would split each bank's loan book by segment (retail vs corporate vs MSME) and find out where the NIM differential actually lives.
 
-- **A regression of ROA on the structural drivers.** Build a simple model of ROA on CASA, NIM, NPA, and CAR. See how much of the private-vs-PSU gap is explained by structural variables, and how much is an unexplained "private bank premium" residual.
+- **A panel regression with bank-level fixed effects.** My current OLS treats the 36 observations as IID, which violates the panel structure (6 banks × 6 years). A fixed-effects regression would absorb time-invariant bank characteristics and tell me how much of the residual is within-bank year-over-year variation vs across-bank structural differences.
 
 - **A stress test.** What happens if loan growth slows 50% next year, or NPAs spike 200bps? Add a scenario tab in the Excel workbook with sliders on growth and NPA.
 
